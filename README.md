@@ -3,7 +3,7 @@
 
 ##  Intro
 
-This repository consists of 1 API endpoint which returns best available seat
+This repository consists of 1 API endpoint which returns best available seats
 1. When the requested seat quantity is found, updated the data with cardId and change the status of the tickets to reserved
 
 ## Requirements
@@ -52,5 +52,5 @@ GET /seats/${cartId}/qty/${qty}
 
 |Status| Parameter | Response Body Example |
 |--|--|--|
-| OK | cartId: card ID of the user <br/> qty: amount of seats requested by user|<code>{"data": ["seat-S0-B-2", "seat-S0-B-3"]}</code> |
+| 200 | cartId: card ID of the user <br/> qty: amount of seats requested by user|<code>{"data": ["seat-S0-B-2", "seat-S0-B-3"]}</code> |
 

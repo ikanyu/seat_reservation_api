@@ -18,7 +18,6 @@ describe("GET /seats/:cartId/qty/:qty", () => {
   })
 
   test("return 200", async() => {
-
     const cartId: string = "abc123";
     const qty: string = "1";
     const response = await request(baseURL).get(`/seats/${cartId}/qty/${qty}`);
