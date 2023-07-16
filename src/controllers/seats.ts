@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import SeatService from "../service/SeatService";
+import { SeatService } from "../service/SeatService";
 
 import { Request, Response, NextFunction } from 'express';
 
