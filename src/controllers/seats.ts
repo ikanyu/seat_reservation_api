@@ -12,13 +12,21 @@ class SeatsController {
 
     const { cartId, qty } = req.params;
 
-    // console.log(fileContent);
-    const ticketService = new SeatService(jsonData);
-    const convertedSeats = ticketService.getBestAvailableTicket(parseInt(qty));
+    const seatService = new SeatService(jsonData);
+
+    let reservation: string[] = seatService.existingReservation(cartId);
+
+    if (reservation.length === 0) {
+      reservation = seatService.getBestAvailableSeats(parseInt(qty));
+      const updatedSeats = seatService.updateSeatDetails(reservation, cartId);
+
+      fs.writeFileSync(fileName, JSON.stringify(updatedSeats));
+
+    }
 
     return res.status(200).json({
-      data: convertedSeats
-    })
+      data: reservation
+    });
   };
 }
 

@@ -49,13 +49,13 @@ export default class SeatService {
     return obj;
   }
 
-  getBestAvailableTicket(qty: number) {
+  getBestAvailableSeats(qty: number) {
     this.availableSeats = this.filterBlockByAvailable();
     console.log("available seats");
     console.log(this.availableSeats);
 
     let currentMin: number = 0;
-    let result: number[] = [];
+    let result: string[] = [];
     let foundBest: Boolean = false;
 
     Object.entries(this.availableSeats).forEach(entry => {
@@ -84,6 +84,29 @@ export default class SeatService {
       }
 
     })
+    return result;
+  }
+
+  updateSeatDetails(seats: string[], cartId: string) {
+    for (const seat of this.seats) {
+      if (seats.includes(seat.code)) {
+        seat.status = 3;
+        seat.cartId = cartId;
+      }
+    }
+
+    return this.seats;
+  }
+
+  existingReservation(cartId: string) {
+    let result: string[] = [];
+
+    for (const seat of this.seats) {
+      if ('cartId' in seat && seat.cartId === cartId) {
+        result.push(seat.code);
+      }
+    }
+
     return result;
   }
 }
