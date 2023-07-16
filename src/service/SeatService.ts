@@ -23,7 +23,6 @@ class SeatService {
 
   filterBlockByAvailable() {
     const filtered = this.seats.filter(seat => seat.status === 1);
-    // const converted = groupBy(filtered, seat => seat.block);
 
     var obj:any = {};
 
@@ -41,8 +40,6 @@ class SeatService {
 
   getBestAvailableSeats(qty: number) {
     this.availableSeats = this.filterBlockByAvailable();
-    // console.log("available seats");
-    // console.log(this.availableSeats);
 
     let currentMin: number = 0;
     let result: string[] = [];
