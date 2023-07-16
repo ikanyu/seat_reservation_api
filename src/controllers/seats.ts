@@ -10,9 +10,11 @@ class SeatsController {
     const fileContent = fs.readFileSync(fileName, 'utf-8');
     const jsonData = JSON.parse(fileContent);
 
+    const { cartId, qty } = req.params;
+
     // console.log(fileContent);
     const ticketService = new SeatService(jsonData);
-    const convertedSeats = ticketService.getBestAvailableTicket(2);
+    const convertedSeats = ticketService.getBestAvailableTicket(parseInt(qty));
 
     return res.status(200).json({
       data: convertedSeats
