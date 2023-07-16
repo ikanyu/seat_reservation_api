@@ -51,35 +51,21 @@ export default class SeatService {
 
   getBestAvailableTicket(qty: number) {
     this.availableSeats = this.filterBlockByAvailable();
+    console.log("available seats");
+    console.log(this.availableSeats);
 
     let currentMin: number = 0;
     let result: number[] = [];
     let foundBest: Boolean = false;
 
-    Object.entries(this.availableSeats).every(entry => {
+    Object.entries(this.availableSeats).forEach(entry => {
       const [block, seats] = entry;
-      console.log("==block");
-      console.log(block);
-      console.log("==seats");
-      console.log(seats);
 
       if (seats.length >= qty) {
-        let counter = 0;
-
-        console.log("==current min");
-        console.log(currentMin);
         if (currentMin === 0 || seats.length < currentMin) {
           result = [];
-          for (let i = 0; i < seats.length; i++) {
-            console.log("===result")
-            console.log(result);
-            console.log("===qty")
-            console.log(qty);
-            if (result.length === qty) {
-              break;
-            }
+          for (let i = 0; i < qty; i++) {
             result.push(seats[i]);
-            counter = counter + 1;
           }
 
           if (currentMin === 0) {
@@ -88,10 +74,8 @@ export default class SeatService {
             currentMin = Math.min(currentMin, seats.length);
           }
         }
-        console.log("--- result ---");
-        console.log(result);
+
         if (seats.length === result.length) {
-          console.log("found bestt");
           foundBest = true;
           return true
         }
@@ -103,5 +87,3 @@ export default class SeatService {
     return result;
   }
 }
-
-// export default SeatService;
