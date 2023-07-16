@@ -21,7 +21,6 @@ class SeatsController {
       const updatedSeats = seatService.updateSeatDetails(reservation, cartId);
 
       fs.writeFileSync(fileName, JSON.stringify(updatedSeats));
-
     }
 
     return res.status(200).json({
