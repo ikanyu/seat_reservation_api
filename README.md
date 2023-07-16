@@ -8,9 +8,13 @@ This repository consists of 1 API endpoint which returns best available seats
 
 ## Requirements
 Return the best seat if there's a better seat options available
+
+```
 1st row 5 seats
 2nd row 2 seats
+
 => return 2nd row with 2 seats
+```
 
 
 ##  Setup
