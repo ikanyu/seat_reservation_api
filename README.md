@@ -6,6 +6,9 @@
 This repository consists of 1 API endpoint which returns best available seats
 1. When the requested seat quantity is found, updated the data with cardId and change the status of the tickets to reserved
 
+## Background
+The data of this API endpoint reads from a file which is available in `/data/seats.json`. `seats-sample.json` also exists in the same folder as it is used to revert back `seats.json` with contents in `seats-sample.json` after running the test.
+
 ## Requirements
 Return the best seat if there's a better seat options available
 
