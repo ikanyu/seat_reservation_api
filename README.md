@@ -9,11 +9,19 @@ This repository consists of 1 API endpoint which returns best available seats
 ## Requirements
 Return the best seat if there's a better seat options available
 
+1st Requirement
 ```
 1st row 5 seats
 2nd row 2 seats
 
 => return 2nd row with 2 seats
+```
+
+2nd Requirement
+```
+Request with same cartId
+
+=> return the previously reserved seats of the cartId
 ```
 
 
@@ -22,7 +30,6 @@ Return the best seat if there's a better seat options available
 You can install the required dependencies by running the follow command
 
 ```
-
 npm install
 
 ```
@@ -30,7 +37,6 @@ npm install
 To start the server, run
 
 ```
-
 npm run serve
 
 ```
@@ -38,7 +44,6 @@ npm run serve
 To run the test cases, run
 
 ```
-
 npm test
 
 ```
