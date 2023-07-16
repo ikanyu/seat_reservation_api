@@ -13,22 +13,12 @@ interface AvailableSeat {
   [block: number]: string[]
 }
 
-export default class SeatService {
+class SeatService {
   seats: Seat[];
-  // convertedSeats: ConvertedSeat;
-  convertedSeats: any;
   availableSeats!: AvailableSeat;
 
   constructor(seats: Seat[]) {
     this.seats = seats;
-    // this.availableSeats = this.filterBlockByAvailable();
-    // this.convertedSeats = this.convertToBlock();
-  }
-
-  convertToBlock() {
-    const converted = groupBy(this.seats, seat => seat.block);
-
-    return converted;
   }
 
   filterBlockByAvailable() {
@@ -51,8 +41,8 @@ export default class SeatService {
 
   getBestAvailableSeats(qty: number) {
     this.availableSeats = this.filterBlockByAvailable();
-    console.log("available seats");
-    console.log(this.availableSeats);
+    // console.log("available seats");
+    // console.log(this.availableSeats);
 
     let currentMin: number = 0;
     let result: string[] = [];
@@ -88,14 +78,16 @@ export default class SeatService {
   }
 
   updateSeatDetails(seats: string[], cartId: string) {
-    for (const seat of this.seats) {
+    const seatsCopy: Seat[] = this.seats;
+
+    for (const seat of seatsCopy) {
       if (seats.includes(seat.code)) {
         seat.status = 3;
         seat.cartId = cartId;
       }
     }
 
-    return this.seats;
+    return seatsCopy;
   }
 
   existingReservation(cartId: string) {
@@ -109,4 +101,9 @@ export default class SeatService {
 
     return result;
   }
+}
+
+export {
+  Seat,
+  SeatService
 }
