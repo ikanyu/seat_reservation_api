@@ -41,14 +41,13 @@ To start the server, run
 
 ```
 npm run serve
-
 ```
 
-To run the test cases, run
+To run the test cases, spin up the server and run the test cases.
 
 ```
+npm run serve
 npm test
-
 ```
 
 
@@ -56,9 +55,7 @@ npm test
 ##  API Endpoint
 
 ```http
-
 GET /seats/${cartId}/qty/${qty}
-
 ```
 
 
