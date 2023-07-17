@@ -1,6 +1,3 @@
-import { group } from 'console';
-import { filter, groupBy, keyBy } from 'lodash';
-
 interface Seat {
     code: string,  // seat-S0-A-8  seat-Section-Row-SeatNo
     block: number,

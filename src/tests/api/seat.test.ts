@@ -10,10 +10,12 @@ const fileContent = fs.readFileSync(fileName, 'utf-8');
 
 describe("GET /seats/:cartId/qty/:qty", () => {
   beforeEach(() => {
+    // prepare file for testing
     fs.writeFileSync(testedFileName, fileContent);
   });
 
   afterEach(() => {
+    // revert file back to original state
     fs.writeFileSync(testedFileName, fileContent);
   })
 
